@@ -129,9 +129,9 @@ app.put('/api/updateUser', (req, res) => {
 
 app.delete('/api/deleteUser', (req, res) => {
     let sql = 'DELETE FROM user WHERE id=?';
-    let data = req.query.id;
+    let data = req.body;
     let sql1 = 'select * from user';
-    db.query(sql, data, (err, result) => {
+    db.query(sql, data.id, (err, result) => {
         if (err) {
             res.json({
                 msg:"failed in delete",
