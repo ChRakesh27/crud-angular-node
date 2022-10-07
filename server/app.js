@@ -40,7 +40,7 @@ app.get('/api/getUsers', (req, res) => {
                 data: result
             })
         }
-        console.log(result);
+        // console.log(result);
     });
 
 
@@ -62,7 +62,7 @@ app.get('/api/getUser/:id', (req, res) => {
                 data: result
             })
         }
-        console.log(result);
+        // console.log(result);
     });
 });
 
@@ -127,12 +127,14 @@ app.put('/api/updateUser', (req, res) => {
     });
 });
 
-app.delete('/api/deleteUser', (req, res) => {
+app.delete('/api/deleteUser/:id', (req, res) => {
     let sql = 'DELETE FROM user WHERE id=?';
-    let data = req.body;
+    let data = req.params;
     let sql1 = 'select * from user';
     db.query(sql, data.id, (err, result) => {
+        console.log(data);
         if (err) {
+            // console.log("error");
             res.json({
                 msg:"failed in delete",
                 error:err

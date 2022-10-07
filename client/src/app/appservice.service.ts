@@ -27,4 +27,11 @@ export class AppserviceService {
     const apiurl = this.BASEURL + '/updateUser'
     return this._http.put(apiurl,data);
   }
+
+  deleteData(data:any): Observable<any>{
+    console.log(data);
+    
+    const apiurl =this.BASEURL+'/deleteUser/'+data
+    return this._http.delete(apiurl);
+  }
 }

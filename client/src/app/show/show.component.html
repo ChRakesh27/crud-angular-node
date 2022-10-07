@@ -4,6 +4,7 @@
         <th scope="col">Id</th>
         <th scope="col">UserName</th>
         <th scope="col">Password</th>
+        <th scope="col">Delete</th>
 
       </tr>
     </thead>
@@ -12,6 +13,7 @@
         <th scope="row">{{inf.id}}</th>
         <td>{{inf.username}}</td>
         <td>{{inf.password}}</td>
+        <td><button (click)="delete(inf.id)">X</button></td>
       </tr>
       
     </tbody>

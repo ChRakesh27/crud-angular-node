@@ -18,6 +18,8 @@ export class SigninComponent implements OnInit {
   })
   
   submit(){
+    // console.log(this.userform);
+    
     this.service.createData(this.userform.value).subscribe((res)=>{
       // console.log(res);
       this.userform.reset();
