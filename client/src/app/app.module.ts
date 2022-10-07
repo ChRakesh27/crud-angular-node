@@ -7,11 +7,13 @@ import { SigninComponent } from './signin/signin.component';
 import {HttpClientModule}from '@angular/common/http';
 import { AppserviceService } from './appservice.service';
 import { ShowComponent } from './show/show.component';
+import { UpdateComponent } from './update/update.component';
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    ShowComponent
+    ShowComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -22,4 +22,9 @@ export class AppserviceService {
     const apiurl = this.BASEURL + '/insertUser'
     return this._http.post(apiurl, data);
   }
+
+  updateDate(data: any): Observable<any>{
+    const apiurl = this.BASEURL + '/updateUser'
+    return this._http.put(apiurl,data);
+  }
 }

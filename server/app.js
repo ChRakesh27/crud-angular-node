@@ -100,8 +100,8 @@ app.post('/api/insertUser', (req, res) => {
 app.put('/api/updateUser', (req, res) => {
     data = req.body;
     let sql1 = `SELECT * FROM user WHERE id=${req.query.id}`
-    let sql = `UPDATE user SET password=? WHERE id =?`;
-    db.query(sql, [data.password, req.query.id], (err, result) => {
+    let sql = `UPDATE user SET username=?, password=?  WHERE id =?`;
+    db.query(sql, [data.username, data.password, data.id], (err, result) => {
         if (err) {
             res.json({
                 msg: "failed",
@@ -123,7 +123,7 @@ app.put('/api/updateUser', (req, res) => {
             })
         }
       
-        console.log(result);
+        // console.log(result);
     });
 });
 
