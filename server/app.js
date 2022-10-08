@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
-var cors = require('cors')
+var cors = require('cors');
+const { selectAll } = require('./sqlQueries');
 
 // connect mysql database..
 var db = mysql.createConnection({
@@ -25,9 +26,7 @@ app.use(cors())
 
 
 app.get('/api/getUsers', (req, res) => {
-
-    let sql = `SELECT * FROM user`;
-    db.query(sql, (err, result) => {
+    db.query(selectAll, (err, result) => {
         if (err) {
             res.json({
                 msg: "failed",
@@ -69,7 +68,6 @@ app.get('/api/getUser/:id', (req, res) => {
 app.post('/api/insertUser', (req, res) => {
     let data = req.body;
     let sql = 'INSERT INTO user SET ?';
-    let sql1 = 'select * from user';
     db.query(sql, data, (err, result) => {
         if (err) {
             res.json({
@@ -77,7 +75,7 @@ app.post('/api/insertUser', (req, res) => {
                 error: err
             })
         } else {
-            db.query(sql1, (err, result1) => {
+            db.query(selectAll, (err, result1) => {
                 if (err) {
                     res.json({
                         msg: "failed",
