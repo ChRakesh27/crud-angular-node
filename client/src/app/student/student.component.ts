@@ -14,8 +14,7 @@ export class StudentComponent implements OnInit {
   
   ngOnInit(): void {
     this.service.getMarks(this.id).subscribe((res) => {
-      return this.getmarks=res.data[0];
-    	
+       this.getmarks=res.data[0];
     })
   }
   
