@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AppserviceService {
 
-
+ 
   BASEURL = "http://localhost:3000/api"
 
   constructor(private _http: HttpClient) { }
@@ -16,10 +16,13 @@ export class AppserviceService {
     const apiurl = this.BASEURL + '/getUsers'
     return this._http.get(apiurl);
   }
+  getMarks(data:any): Observable<any> {
+    const apiurl = this.BASEURL + '/getMarks/'+ data
+    return this._http.get(apiurl);
+  }
 
-
-  createData(data: any): Observable<any> {
-    const apiurl = this.BASEURL + '/insertUser'
+  createData(data: any,id:any): Observable<any> {
+    const apiurl = this.BASEURL + '/insertUser/'+id
     return this._http.post(apiurl, data);
   }
 

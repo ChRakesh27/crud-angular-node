@@ -1,20 +1,31 @@
-<table class="table">
+<div>
+  
+  <br>
+  <button (click)="select('Student')" class="btn btn-danger">Student</button>
+  &nbsp;
+  <button (click)="select('Teacher')" class="btn btn-danger">Teacher</button>
+  <hr>
+  <h1 style="text-align:'center'">{{userinf}}</h1>
+  <hr>
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">Id</th>
         <th scope="col">UserName</th>
         <th scope="col">Password</th>
+        <th scope="col">about</th>
         <th scope="col">Delete</th>
-
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let inf of getData">
-        <th scope="row">{{inf.id}}</th>
-        <td>{{inf.username}}</td>
-        <td>{{inf.password}}</td>
-        <td><button (click)="delete(inf.id)">X</button></td>
+      <tr *ngFor="let inf of getData" >
+        <th  *ngIf="inf.about==userinf" scope="row">{{inf.id}}</th>
+        <td  *ngIf="inf.about==userinf">{{inf.username}}</td>
+        <td  *ngIf="inf.about==userinf">{{inf.password}}</td>
+        <td  *ngIf="inf.about==userinf">{{inf.about}}</td>
+        <td  *ngIf="inf.about==userinf"><button (click)="delete(inf.id)">X</button></td>
       </tr>
       
     </tbody>
   </table>
+</div>

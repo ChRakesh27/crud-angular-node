@@ -11,14 +11,17 @@ export class ShowComponent implements OnInit {
 
   constructor(private service:AppserviceService) { }
   getData : any;
-  data :any;
   ngOnInit(): void {
     this.service.getAllData().subscribe((res)=>{
       // console.log(res);
       this.getData=res.data;
     })
   }
-  
+  userinf:any='Student';
+
+  select(data:any){
+    this.userinf=data
+  }
   delete(user:any){
   console.log(user);
   this.service.deleteData(user).subscribe((res)=>{

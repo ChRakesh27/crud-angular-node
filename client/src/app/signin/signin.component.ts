@@ -13,14 +13,16 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
   userform=new FormGroup({
+    'id':new FormControl('',Validators.required),
     'username':new FormControl('',Validators.required),
-    'password':new FormControl('',Validators.required)
+    'password':new FormControl('',Validators.required),
+    'about':new FormControl('',Validators.required)
   })
   
   submit(){
     // console.log(this.userform);
     
-    this.service.createData(this.userform.value).subscribe((res)=>{
+    this.service.createData(this.userform.value,'login').subscribe((res)=>{
       // console.log(res);
       this.userform.reset();
       

@@ -24,6 +24,7 @@ async function createServer() {
         app.use(cors())
 
         // express routes
+        // const tablename='user'
         userRoutes(app, db)
 
         // express server done
