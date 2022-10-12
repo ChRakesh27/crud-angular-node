@@ -4,15 +4,19 @@ import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { ShowComponent } from './show/show.component';
 import { SigninComponent } from './signin/signin.component';
+import { StudentComponent } from './student/student.component';
+import { TeacherComponent } from './teacher/teacher.component';
 import { UpdateComponent } from './update/update.component';
 
 const routes: Routes = [
+  // { path: 'login', component: LoginComponent },
   { path: "sign", component: SigninComponent },
   { path: 'show', component: ShowComponent },
   { path: 'update', component: UpdateComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**', component: ErrorComponent }];
+  { path: 'student', component: StudentComponent },
+  { path: 'teacher', component: TeacherComponent },
+  { path: '**', component: ErrorComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

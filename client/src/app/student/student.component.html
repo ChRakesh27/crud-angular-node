@@ -2,62 +2,65 @@
   <h1 style="text-align:'center';">{{getmarks?.username | uppercase}}</h1>
   <hr>
   <hr>
-<table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Student Id</th>
-          <th scope="col">English</th>
-          <th scope="col">Science</th>
-          <th scope="col">Maths</th>
-          <th scope="col">Computer</th>
-          <th scope="col">Arts</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">{{getmarks?.id}}</th>
-          <td>{{getmarks?.english}}</td>
-          <td>{{getmarks?.science}}</td>
-          <td>{{getmarks?.maths}}</td>
-          <td>{{getmarks?.computer}}</td>
-          <td>{{getmarks?.arts}}</td>
-        </tr>
-        <tr>
-          <th>Grade</th>
-        <td *ngIf="getmarks?.english>35; else fail">pass</td>  
-        <td *ngIf="getmarks?.science>35; else fail">pass</td>  
-        <td *ngIf="getmarks?.maths>35; else fail">pass</td>  
-        <td *ngIf="getmarks?.computer>35; else fail">pass</td>  
-        <td *ngIf="getmarks?.arts>35; else fail">pass</td>  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Student Id</th>
+        <th scope="col">English</th>
+        <th scope="col">Science</th>
+        <th scope="col">Maths</th>
+        <th scope="col">Computer</th>
+        <th scope="col">Arts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{getmarks?.id}}</th>
+        <td>{{getmarks?.english}}</td>
+        <td>{{getmarks?.science}}</td>
+        <td>{{getmarks?.maths}}</td>
+        <td>{{getmarks?.computer}}</td>
+        <td>{{getmarks?.arts}}</td>
+      </tr>
+      <tr>
+        <th>Grade</th>
+        <td *ngIf="getmarks?.english>35; else fail">pass</td>
+        <td *ngIf="getmarks?.science>35; else fail">pass</td>
+        <td *ngIf="getmarks?.maths>35; else fail">pass</td>
+        <td *ngIf="getmarks?.computer>35; else fail">pass</td>
+        <td *ngIf="getmarks?.arts>35; else fail">pass</td>
         <ng-template #fail>
           <td>fail</td>
         </ng-template>
-        </tr>
-        <tr>
-          <th>Credit</th>
-        <td *ngIf="getmarks?.english>35; else fail">1</td>  
-        <td *ngIf="getmarks?.science>35; else fail">1</td>  
-        <td *ngIf="getmarks?.maths>35; else fail">1</td>  
-        <td *ngIf="getmarks?.computer>35; else fail">1</td>  
-        <td *ngIf="getmarks?.arts>35; else fail">1</td>  
+      </tr>
+      <tr>
+        <th>Credit</th>
+        <td *ngIf="getmarks?.english>35; else credit">1</td>
+        <td *ngIf="getmarks?.science>35; else credit">1</td>
+        <td *ngIf="getmarks?.maths>35; else credit">1</td>
+        <td *ngIf="getmarks?.computer>35; else credit">1</td>
+        <td *ngIf="getmarks?.arts>35; else credit">1</td>
         <ng-template #fail>
           <td>fail</td>
         </ng-template>
-        </tr>
-        <tr>
-          <th>Total</th>
-          <th>
-            {{getmarks?.english+getmarks?.science+getmarks?.maths+getmarks?.computer+getmarks?.arts}}/500
-          </th>
-        </tr>
-        <tr>
-          <th>Persentage</th>
-          <th>
-            {{(getmarks?.english+getmarks?.science+getmarks?.maths+getmarks?.computer+getmarks?.arts)/5}}%
-          </th>
-        </tr>
-        <br>
-        <br>
-      </tbody>
-</table>
+        <ng-template #credit>
+          <td>n/a</td>
+        </ng-template>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <th>
+          {{getmarks?.english+getmarks?.science+getmarks?.maths+getmarks?.computer+getmarks?.arts}}/500
+        </th>
+      </tr>
+      <tr>
+        <th>Persentage</th>
+        <th>
+          {{(getmarks?.english+getmarks?.science+getmarks?.maths+getmarks?.computer+getmarks?.arts)/5}}%
+        </th>
+      </tr>
+      <br>
+      <br>
+    </tbody>
+  </table>
 </div>

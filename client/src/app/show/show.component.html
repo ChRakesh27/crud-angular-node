@@ -1,6 +1,6 @@
 <div>
-  
   <br>
+  <!-- <a routerLink="" -->
   <button (click)="select('Student')" class="btn btn-danger">Student</button>
   &nbsp;
   <button (click)="select('Teacher')" class="btn btn-danger">Teacher</button>
@@ -18,14 +18,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let inf of getData" >
-        <th  *ngIf="inf.about==userinf" scope="row">{{inf.id}}</th>
-        <td  *ngIf="inf.about==userinf">{{inf.username}}</td>
-        <td  *ngIf="inf.about==userinf">{{inf.password}}</td>
-        <td  *ngIf="inf.about==userinf">{{inf.about}}</td>
-        <td  *ngIf="inf.about==userinf"><button (click)="delete(inf.id)">X</button></td>
+      <tr *ngFor="let inf of getData">
+        <th *ngIf="inf.about==userinf" scope="row">{{inf.id}}</th>
+        <td *ngIf="inf.about==userinf">{{inf.username}}</td>
+        <td *ngIf="inf.about==userinf">{{inf.password}}</td>
+        <td *ngIf="inf.about==userinf">{{inf.about}}</td>
+        <td *ngIf="inf.about==userinf"><button (click)="delete(inf.id)">X</button></td>
       </tr>
-      
+
     </tbody>
   </table>
 </div>
