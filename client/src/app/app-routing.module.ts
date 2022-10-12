@@ -9,13 +9,11 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { UpdateComponent } from './update/update.component';
 
 const routes: Routes = [
-  // { path: 'login', component: LoginComponent },
   { path: "sign", component: SigninComponent },
   { path: 'show', component: ShowComponent },
   { path: 'update', component: UpdateComponent },
   { path: 'student', component: StudentComponent },
-  { path: 'teacher', component: TeacherComponent },
-  { path: '**', component: ErrorComponent }
+  { path: 'teacher', component: TeacherComponent }
 ];
 
 @NgModule({
