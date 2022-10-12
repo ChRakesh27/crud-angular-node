@@ -4,25 +4,7 @@ const { selectAll } = require("../sqlQueries")
 // console.log("🚀 ~ tablename", tablename);
 
 function userRoutes(app, db) {
-    app.get('/api/getUser', async (req, res) => {
-        try {
-            const data = req.body
-            console.log("🚀 ~ data", data)
-            // const selectAll = `SELECT * FROM  login`;
-            const marks = `select  * from marks;`;
-            const selRes = await db.query(marks);
-            res.json({
-                msg: "success",
-                data: selRes[0]
-            })
-        } catch (error) {
-            console.log("🚀 ~ error", error)
-            res.json({
-                msg: "failed",
-                error: error
-            })
-        }
-    });
+
 
     app.get('/api/getUsers', async (req, res) => {
         try {
@@ -65,6 +47,7 @@ function userRoutes(app, db) {
         try {
             let data = req.body;
             const insRes = `INSERT INTO ${req.params.id} SET ?`;
+
             await db.query(insRes, data)
             const selRes = await db.query(selectAll)
             res.json({

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AppserviceService {
 
- 
+
   BASEURL = "http://localhost:3000/api"
 
   constructor(private _http: HttpClient) { }
@@ -16,25 +16,25 @@ export class AppserviceService {
     const apiurl = this.BASEURL + '/getUsers'
     return this._http.get(apiurl);
   }
-  getMarks(data:any): Observable<any> {
-    const apiurl = this.BASEURL + '/getMarks/'+ data
+  getMarks(data: any): Observable<any> {
+    const apiurl = this.BASEURL + '/getMarks/' + data
     return this._http.get(apiurl);
   }
 
-  createData(data: any,id:any): Observable<any> {
-    const apiurl = this.BASEURL + '/insertUser/'+id
+  createData(data: any, id: any): Observable<any> {
+    const apiurl = this.BASEURL + '/insertUser/' + id
     return this._http.post(apiurl, data);
   }
 
-  updateDate(data: any): Observable<any>{
+  updateDate(data: any): Observable<any> {
     const apiurl = this.BASEURL + '/updateUser'
-    return this._http.put(apiurl,data);
+    return this._http.put(apiurl, data);
   }
 
-  deleteData(data:any): Observable<any>{
+  deleteData(data: any): Observable<any> {
     console.log(data);
-    
-    const apiurl =this.BASEURL+'/deleteUser/'+data
+
+    const apiurl = this.BASEURL + '/deleteUser/' + data
     return this._http.delete(apiurl);
   }
 }

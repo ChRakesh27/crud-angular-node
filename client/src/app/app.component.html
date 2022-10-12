@@ -12,17 +12,17 @@
         &nbsp;
         <a routerLink="update" class="btn btn-secondary">update</a>
         &nbsp;&nbsp;
-        <a href=login class="btn btn-danger">LoginPage</a>
+        <a href='' class="btn btn-danger">LoginPage</a>
         <router-outlet></router-outlet>
     </div>
     <div *ngIf="isvalid=='Student'">
         <h1>Student </h1>
-        <a href=login class="btn btn-danger">LoginPage</a>
+        <a href='' class="btn btn-danger">LoginPage</a>
         <app-student [id]="getId()"></app-student>
     </div>
     <div *ngIf="isvalid=='Teacher'">
         <h1>Teacher </h1>
-        <a href=login class="btn btn-danger">LoginPage</a>
+        <a href='' class="btn btn-danger">LoginPage</a>
         <app-teacher></app-teacher>
     </div>
     <div *ngIf="error && id=='p0'">

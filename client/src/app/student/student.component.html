@@ -23,7 +23,7 @@
         <td>{{getmarks?.arts}}</td>
       </tr>
       <tr>
-        <th>Grade</th>
+        <th> </th>
         <td *ngIf="getmarks?.english>35; else fail">pass</td>
         <td *ngIf="getmarks?.science>35; else fail">pass</td>
         <td *ngIf="getmarks?.maths>35; else fail">pass</td>
@@ -50,14 +50,24 @@
       <tr>
         <th>Total</th>
         <th>
-          {{getmarks?.english+getmarks?.science+getmarks?.maths+getmarks?.computer+getmarks?.arts}}/500
+          {{total}}/500
         </th>
       </tr>
       <tr>
         <th>Persentage</th>
         <th>
-          {{(getmarks?.english+getmarks?.science+getmarks?.maths+getmarks?.computer+getmarks?.arts)/5}}%
+          {{per}}%
         </th>
+      </tr>
+      <tr>
+        <th>Grade</th>
+        <td *ngIf="per>90">A+</td>
+        <td *ngIf="per>80 && per<=90">A</td>
+        <td *ngIf="per>70 && per<=80">B+</td>
+        <td *ngIf="per>60 && per<=70">B</td>
+        <td *ngIf="per>50&& per<=60">C+</td>
+        <td *ngIf="per>40&& per<=50">C</td>
+        <td *ngIf="per>30&& per<=40">F</td>
       </tr>
       <br>
       <br>
