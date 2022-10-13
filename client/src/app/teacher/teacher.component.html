@@ -1,30 +1,42 @@
-<form [formGroup]="marksform" (ngSubmit)="submit()">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Id</label>
-    <input type="user" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="id">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">English</label>
-    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-      formControlName="english">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Science</label>
-    <input type="number" class="form-control" id="exampleInputPassword1" formControlName="science">
-  </div>
+<form [formGroup]="updatemarks">
+  <br>
+  <br>
+  <br>
+  <h1 style="text-align:center ;">
+    {{subject | uppercase}}
+    <br>
+    <br>
+  </h1>
+  <hr>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" width="30%">Id</th>
+        <th scope="col" width="40%">Marks</th>
+        <th scope="col" width="30%">Update</th>
+      </tr>
+    </thead>
+    <tbody>
 
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Maths</label>
-    <input type="number" class="form-control" id="exampleInputPassword1" formControlName="maths">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Computer</label>
-    <input type="number" class="form-control" id="exampleInputPassword1" formControlName="computer">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Arts</label>
-    <input type="number" class="form-control" id="exampleInputPassword1" formControlName="arts">
-  </div>
+      <tr *ngFor="let marksget of getmarks">
+        <th scope="row"><label for="exampleInputEmail1" class="form-label">{{marksget.id}}</label></th>
+        <td>
+          <label for="exampleInputEmail1" class="form-label"
+            *ngIf="!change && marksget[subject]!='-'">{{marksget[subject]}}</label>
+          <label for="exampleInputEmail1" class="form-label"
+            *ngIf="!change && marksget[subject]!=mar && marksget.id==id">{{mar}}</label>
+          <input type="text" style="width:'70px' ;" *ngIf="change && id==marksget.id" formControlName="value"
+            [(ngModel)]="mar">
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+
+        </td>
+        <td>
+          <button type="submit" class="btn btn-primary" (click)="update(marksget.id, true)"
+            *ngIf="!change">Update</button>
+          <button type="submit" class="btn btn-danger" (click)="update(marksget.id,false)"
+            *ngIf="change && id==marksget.id">Cancel</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </form>

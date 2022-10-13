@@ -23,9 +23,9 @@
     <div *ngIf="isvalid=='Teacher'">
         <h1>Teacher </h1>
         <a href='' class="btn btn-danger">LoginPage</a>
-        <app-teacher></app-teacher>
+        <app-teacher [user]="getId()"></app-teacher>
     </div>
-    <div *ngIf="error && id=='p0'">
+    <div *ngIf="isvalid=='error'">
         <app-error></app-error>
     </div>
 </ng-template>

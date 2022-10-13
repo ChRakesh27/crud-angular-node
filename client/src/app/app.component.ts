@@ -9,7 +9,7 @@ import { AppserviceService } from './appservice.service';
 export class AppComponent implements OnInit {
   constructor(private service: AppserviceService) { }
   ngOnInit(): void {
-    this.service.getAllData().subscribe((res) => {
+    this.service.getAllData('login').subscribe((res) => {
       this.getdata = res.data
     })
   }
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   password: any = '';
   id: any = '';
   isvalid: any = 'error';
-  error: any = true;
+
   check(data: any) {
     this.password = data[1];
     this.id = data[0]
@@ -28,20 +28,16 @@ export class AppComponent implements OnInit {
       if (i.id == this.id && i.password == this.password) {
         if (this.id[0] == 's') {
           this.isvalid = 'Student';
-          this.error = false
           break;
         } else if (this.id[0] == 't') {
           this.isvalid = 'Teacher';
-          this.error = false;
           break;
         } else if (this.id == 'p0') {
           this.isvalid = 'Principal';
-          this.error = false;
           break;
         }
       }
     }
-
 
   }
 

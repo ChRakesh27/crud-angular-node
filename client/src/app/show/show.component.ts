@@ -9,28 +9,28 @@ import { AppserviceService } from '../appservice.service';
 })
 export class ShowComponent implements OnInit {
 
-  constructor(private service:AppserviceService) { }
-  getData : any;
+  constructor(private service: AppserviceService) { }
+  getData: any;
   ngOnInit(): void {
-    this.service.getAllData().subscribe((res)=>{
+    this.service.getAllData('login').subscribe((res) => {
       // console.log(res);
-      this.getData=res.data;
+      this.getData = res.data;
     })
   }
-  userinf:any='Student';
+  userinf: any = 'Student';
 
-  select(data:any){
-    this.userinf=data
+  select(data: any) {
+    this.userinf = data
   }
-  delete(user:any){
-  console.log(user);
-  this.service.deleteData(user).subscribe((res)=>{
-    console.log(res);
-    this.getData=res.data;
-  })
-}
-  
-  
-  
+  delete(user: any) {
+    console.log(user);
+    this.service.deleteData(user).subscribe((res) => {
+      console.log(res);
+      this.getData = res.data;
+    })
+  }
+
+
+
 
 }
