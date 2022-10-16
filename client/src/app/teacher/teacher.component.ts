@@ -16,6 +16,7 @@ export class TeacherComponent implements OnInit {
   id: any;
   change: any = false;
   mar: any = '';
+  mar1: any;
   ngOnInit(): void {
     this.service.getAllData('marks').subscribe((res) => {
       this.getmarks = res.data;
@@ -36,15 +37,21 @@ export class TeacherComponent implements OnInit {
   }
   updatemarks = new FormGroup({
     id: new FormControl('', Validators.required),
-    value: new FormControl('', Validators.required),
+    value: new FormControl(-1, Validators.required),
   })
 
   update(data: any, cha: boolean) {
     this.id = data;
     this.change = cha;
     this.updatemarks.value.id = data;
-    this.service.updateMarks(this.updatemarks.value, this.subject).subscribe((res) => {
-      this.updatemarks.reset();
-    })
+    this.mar1 = this.mar;
+    if (!cha) {
+      this.service.updateMarks(this.updatemarks.value, this.subject).subscribe((res) => {
+        this.mar = '';
+        this.updatemarks.reset();
+
+        console.log("🚀 ~ this.updatemarks.value", this.updatemarks.value)
+      })
+    }
   }
 }

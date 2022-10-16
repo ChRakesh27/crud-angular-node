@@ -17,24 +17,21 @@
       </tr>
     </thead>
     <tbody>
-
       <tr *ngFor="let marksget of getmarks">
         <th scope="row"><label for="exampleInputEmail1" class="form-label">{{marksget.id}}</label></th>
         <td>
           <label for="exampleInputEmail1" class="form-label"
-            *ngIf="!change && marksget[subject]!='-'">{{marksget[subject]}}</label>
+            *ngIf="!change && marksget[subject]!=-1 ">{{marksget[subject]}}</label>
           <label for="exampleInputEmail1" class="form-label"
-            *ngIf="!change && marksget[subject]!=mar && marksget.id==id">{{mar}}</label>
-          <input type="text" style="width:'70px' ;" *ngIf="change && id==marksget.id" formControlName="value"
+            *ngIf="!change && marksget[subject]!=mar && marksget.id==id">{{mar1}}</label>
+          <input type='number' style="width:'70px' ;" *ngIf="change && id==marksget.id" formControlName="value"
             [(ngModel)]="mar">
-
-
         </td>
         <td>
           <button type="submit" class="btn btn-primary" (click)="update(marksget.id, true)"
             *ngIf="!change">Update</button>
           <button type="submit" class="btn btn-danger" (click)="update(marksget.id,false)"
-            *ngIf="change && id==marksget.id">Cancel</button>
+            *ngIf="change && id==marksget.id">ok</button>
         </td>
       </tr>
     </tbody>
