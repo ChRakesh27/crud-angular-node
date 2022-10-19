@@ -21,12 +21,11 @@ export class SigninComponent implements OnInit {
 
   marksform = new FormGroup({
     'id': new FormControl(this.userform.value.id),
-    'english': new FormControl(-1),
-    'science': new FormControl(-1),
-    'maths': new FormControl(-1),
-    'computer': new FormControl(-1),
-    'arts': new FormControl(-1)
-
+    'english': new FormControl(),
+    'science': new FormControl(),
+    'maths': new FormControl(),
+    'computer': new FormControl(),
+    'arts': new FormControl()
   })
   submit() {
     this.service.createData(this.userform.value, 'login').subscribe((res) => {

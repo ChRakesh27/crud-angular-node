@@ -15,8 +15,7 @@ export class TeacherComponent implements OnInit {
   getmarks: any;
   id: any;
   change: any = false;
-  mar: any = '';
-  mar1: any;
+
   ngOnInit(): void {
     this.service.getAllData('marks').subscribe((res) => {
       this.getmarks = res.data;
@@ -40,18 +39,21 @@ export class TeacherComponent implements OnInit {
     value: new FormControl(-1, Validators.required),
   })
 
-  update(data: any, cha: boolean) {
-    this.id = data;
-    this.change = cha;
+  update(data: any) {
     this.updatemarks.value.id = data;
-    this.mar1 = this.mar;
-    if (!cha) {
-      this.service.updateMarks(this.updatemarks.value, this.subject).subscribe((res) => {
-        this.mar = '';
-        this.updatemarks.reset();
+    this.service.updateMarks(this.updatemarks.value, this.subject).subscribe((res) => {
+      this.updatemarks.reset();
+      console.log("🚀 ~ this.updatemarks.value", this.updatemarks.value)
+    })
 
-        console.log("🚀 ~ this.updatemarks.value", this.updatemarks.value)
-      })
-    }
+  }
+
+  displayStyle = "none";
+  updatePopup(id: any) {
+    this.id = id;
+    this.displayStyle = 'block';
+  }
+  cancelPopup() {
+    this.displayStyle = 'none'
   }
 }

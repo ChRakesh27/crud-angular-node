@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 import { AppserviceService } from '../appservice.service';
 
 @Component({
@@ -11,7 +12,6 @@ export class LoginComponent implements OnInit {
   constructor(private service: AppserviceService) { }
 
   ngOnInit(): void {
-
   }
 
   id: any = '';
@@ -23,4 +23,6 @@ export class LoginComponent implements OnInit {
   emitted() {
     this.login.emit([this.id, this.password]);
   }
+
+
 }

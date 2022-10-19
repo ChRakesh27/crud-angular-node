@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AppserviceService } from './appservice.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { AppserviceService } from './appservice.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private service: AppserviceService) { }
+  constructor(private service: AppserviceService, private toast: ToastrService) { }
   ngOnInit(): void {
     this.service.getAllData('login').subscribe((res) => {
       this.getdata = res.data
@@ -28,17 +29,21 @@ export class AppComponent implements OnInit {
       if (i.id == this.id && i.password == this.password) {
         if (this.id[0] == 's') {
           this.isvalid = 'Student';
+          this.toast.success('success!');
           break;
         } else if (this.id[0] == 't') {
           this.isvalid = 'Teacher';
+          this.toast.success('success!');
           break;
         } else if (this.id == 'p0') {
           this.isvalid = 'Principal';
+          this.toast.success('success!');
           break;
         }
       }
     }
-
+    if (this.isvalid == 'error')
+      this.toast.error('Error!');
   }
 
   getId() {

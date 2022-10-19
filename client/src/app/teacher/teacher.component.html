@@ -20,18 +20,29 @@
       <tr *ngFor="let marksget of getmarks">
         <th scope="row"><label for="exampleInputEmail1" class="form-label">{{marksget.id}}</label></th>
         <td>
-          <label for="exampleInputEmail1" class="form-label"
-            *ngIf="!change && marksget[subject]!=-1 ">{{marksget[subject]}}</label>
-          <label for="exampleInputEmail1" class="form-label"
-            *ngIf="!change && marksget[subject]!=mar && marksget.id==id">{{mar1}}</label>
-          <input type='number' style="width:'70px' ;" *ngIf="change && id==marksget.id" formControlName="value"
-            [(ngModel)]="mar">
+          <label for="exampleInputEmail1" class="form-label">{{marksget[subject]}}</label>
+          <!-- <label for="exampleInputEmail1" class="form-label" *ngIf="marksget.id==id ">{{mar1}}</label> -->
         </td>
         <td>
-          <button type="submit" class="btn btn-primary" (click)="update(marksget.id, true)"
-            *ngIf="!change">Update</button>
-          <button type="submit" class="btn btn-danger" (click)="update(marksget.id,false)"
-            *ngIf="change && id==marksget.id">ok</button>
+          <button type="button" class="btn btn-primary" (click)="updatePopup(marksget.id)">Update
+          </button>
+
+          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">ID: {{id}}</h4>
+                </div>
+                <div class="modal-body">
+                  <input type='number' style="width:'70px' ;" formControlName="value">
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary" (click)="update(id)" (click)="cancelPopup()">Ok</button>
+                  <button type="button" class="btn btn-danger" (click)="cancelPopup()">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </td>
       </tr>
     </tbody>
