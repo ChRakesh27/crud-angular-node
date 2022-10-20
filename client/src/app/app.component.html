@@ -1,5 +1,4 @@
 <div *ngIf="password=='' && id==''; else principal">
-    <h1>Login</h1>
     <app-login (login)="check($event)"></app-login>
 </div>
 
