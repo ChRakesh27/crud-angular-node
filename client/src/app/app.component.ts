@@ -28,16 +28,16 @@ export class AppComponent implements OnInit {
     for (let i of this.getdata) {
       if (i.id == this.id && i.password == this.password) {
         if (this.id[0] == 's') {
-          this.isvalid = 'Student';
           this.toast.success('success!');
+          this.isvalid = 'Student';
           break;
         } else if (this.id[0] == 't') {
-          this.isvalid = 'Teacher';
           this.toast.success('success!');
+          this.isvalid = 'Teacher';
           break;
         } else if (this.id == 'p0') {
-          this.isvalid = 'Principal';
           this.toast.success('success!');
+          this.isvalid = 'Principal';
           break;
         }
       }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppserviceService } from '../appservice.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -8,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private service: AppserviceService) { }
+  constructor(private service: AppserviceService, private toast: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +33,7 @@ export class SigninComponent implements OnInit {
     });
     this.marksform.value.id = this.userform.value.id;
     this.service.createData(this.marksform.value, 'marks').subscribe((res) => {
+      this.toast.success("Created..!", this.userform.value.id);
       this.marksform.reset()
       this.userform.reset();
     })

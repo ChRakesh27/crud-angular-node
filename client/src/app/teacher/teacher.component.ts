@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AppserviceService } from '../appservice.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { AppserviceService } from '../appservice.service';
 })
 export class TeacherComponent implements OnInit {
 
-  constructor(private service: AppserviceService) { }
+  constructor(private service: AppserviceService, private toast: ToastrService) {
+
+  }
   @Input() user: any = ''
   subject: any;
   getmarks: any;
@@ -21,7 +24,6 @@ export class TeacherComponent implements OnInit {
       this.getmarks = res.data;
     })
     console.log("🚀 ~ this.user", this.user)
-
     if (this.user == 't1') {
       this.subject = 'english';
     } else if (this.user == 't2') {
@@ -36,16 +38,19 @@ export class TeacherComponent implements OnInit {
   }
   updatemarks = new FormGroup({
     id: new FormControl('', Validators.required),
-    value: new FormControl(-1, Validators.required),
+    value: new FormControl('', Validators.required),
   })
 
   update(data: any) {
     this.updatemarks.value.id = data;
+    this.toast.success('updated..!', data);
     this.service.updateMarks(this.updatemarks.value, this.subject).subscribe((res) => {
-      this.updatemarks.reset();
       console.log("🚀 ~ this.updatemarks.value", this.updatemarks.value)
-    })
 
+      this.updatemarks.reset();
+    })
+    // window.location.reload()
+    // this.reloadComponent(true);
   }
 
   displayStyle = "none";
