@@ -1,4 +1,4 @@
-<form [formGroup]="updatemarks">
+<!-- <form [formGroup]="updatemarks">
   <br>
   <br>
   <br>
@@ -21,7 +21,56 @@
         <th scope="row"><label for="exampleInputEmail1" class="form-label">{{marksget.id}}</label></th>
         <td>
           <label for="exampleInputEmail1" class="form-label">{{marksget[subject]}}</label>
-          <!-- <label for="exampleInputEmail1" class="form-label" *ngIf="marksget.id==id ">{{mar1}}</label> -->
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="updatePopup(marksget.id)">Update
+          </button>
+          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">ID: {{id}}</h4>
+                </div>
+                <div class="modal-body">
+                  <input type='number' style="width:'70px' ;" formControlName="value">
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary" (click)="update(id)" (click)="cancelPopup()">Ok</button>
+                  <button type="button" class="btn btn-danger" (click)="cancelPopup()">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+ -->
+<form [formGroup]="updatemarks">
+  <br>
+  <br>
+  <br>
+  <h1 style="text-align:center ;">
+    {{subject | uppercase}}
+    <br>
+    <br>
+  </h1>
+  <hr>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" width="30%">Id</th>
+        <th scope="col" width="40%">Marks</th>
+        <th scope="col" width="30%">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let marksget of mar[0]">
+        <th scope="row"><label for="exampleInputEmail1" class="form-label">{{marksget.id}}</label></th>
+        <td>
+          <!-- <label for="exampleInputEmail1" class="form-label">{{marksget[subject]}}</label> -->
+          <label for="exampleInputEmail1" class="form-label">{{marksget[subject]}}</label>
         </td>
         <td>
           <button type="button" class="btn btn-primary" (click)="updatePopup(marksget.id)">Update

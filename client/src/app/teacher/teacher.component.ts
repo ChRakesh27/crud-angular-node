@@ -18,10 +18,14 @@ export class TeacherComponent implements OnInit {
   getmarks: any;
   id: any;
   change: any = false;
+  mar: any = [];
 
   ngOnInit(): void {
     this.service.getAllData('marks').subscribe((res) => {
       this.getmarks = res.data;
+      console.log("🚀 ~ this.getmarks", this.getmarks)
+      this.mar.push(this.getmarks)
+      console.log("🚀 ~ this.mar", this.mar[0])
     })
     console.log("🚀 ~ this.user", this.user)
     if (this.user == 't1') {
@@ -43,14 +47,11 @@ export class TeacherComponent implements OnInit {
 
   update(data: any) {
     this.updatemarks.value.id = data;
+    this.mar[0][(data[1]) - 1][this.subject] = this.updatemarks.value.value;
     this.toast.success('updated..!', data);
     this.service.updateMarks(this.updatemarks.value, this.subject).subscribe((res) => {
-      console.log("🚀 ~ this.updatemarks.value", this.updatemarks.value)
-
       this.updatemarks.reset();
     })
-    // window.location.reload()
-    // this.reloadComponent(true);
   }
 
   displayStyle = "none";
