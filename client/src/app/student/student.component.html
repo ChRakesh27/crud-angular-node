@@ -1,76 +1,88 @@
-<div>
-  <h1 style="text-align:'center';">{{getmarks?.username | uppercase}}</h1>
-  <hr>
-  <hr>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Student Id</th>
-        <th scope="col">English</th>
-        <th scope="col">Science</th>
-        <th scope="col">Maths</th>
-        <th scope="col">Computer</th>
-        <th scope="col">Arts</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">{{getmarks?.id}}</th>
-        <td>{{getmarks?.english}}</td>
-        <td>{{getmarks?.science}}</td>
-        <td>{{getmarks?.maths}}</td>
-        <td>{{getmarks?.computer}}</td>
-        <td>{{getmarks?.arts}}</td>
-      </tr>
-      <tr>
-        <th> </th>
-        <td *ngIf="getmarks?.english>35; else fail">pass</td>
-        <td *ngIf="getmarks?.science>35; else fail">pass</td>
-        <td *ngIf="getmarks?.maths>35; else fail">pass</td>
-        <td *ngIf="getmarks?.computer>35; else fail">pass</td>
-        <td *ngIf="getmarks?.arts>35; else fail">pass</td>
-        <ng-template #fail>
-          <td>fail</td>
-        </ng-template>
-      </tr>
-      <tr>
-        <th>Credit</th>
-        <td *ngIf="getmarks?.english>35; else credit">1</td>
-        <td *ngIf="getmarks?.science>35; else credit">1</td>
-        <td *ngIf="getmarks?.maths>35; else credit">1</td>
-        <td *ngIf="getmarks?.computer>35; else credit">1</td>
-        <td *ngIf="getmarks?.arts>35; else credit">1</td>
-        <ng-template #fail>
-          <td>fail</td>
-        </ng-template>
-        <ng-template #credit>
-          <td>n/a</td>
-        </ng-template>
-      </tr>
-      <tr>
-        <th>Total</th>
-        <th>
-          {{total}}/500
-        </th>
-      </tr>
-      <tr>
-        <th>Persentage</th>
-        <th>
-          {{per}}%
-        </th>
-      </tr>
-      <tr>
-        <th>Grade</th>
-        <td *ngIf="per>90">A+</td>
-        <td *ngIf="per>80 && per<=90">A</td>
-        <td *ngIf="per>70 && per<=80">B+</td>
-        <td *ngIf="per>60 && per<=70">B</td>
-        <td *ngIf="per>50&& per<=60">C+</td>
-        <td *ngIf="per>40&& per<=50">C</td>
-        <td *ngIf="per>30&& per<=40">F</td>
-      </tr>
-      <br>
-      <br>
-    </tbody>
-  </table>
+<div class="student">
+
+  <h1>Student </h1>
+  <a href='' class="btn btn-primary btn-lg btn-rounded gradient-custom text-body px-5">LoginPage</a>
+  <img src="../../assets/images/{{getmarks.img}}.jpg" alt="">
+  <div>
+    <h1 style="text-align:'center';">{{getmarks?.username | uppercase}}</h1>
+    <hr>
+    <hr>
+    <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+      <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+      <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+      <div class="card bg-glass">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Student Id</th>
+              <th scope="col">English</th>
+              <th scope="col">Science</th>
+              <th scope="col">Maths</th>
+              <th scope="col">Computer</th>
+              <th scope="col">Arts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{getmarks?.id}}</th>
+              <td>{{getmarks?.english}}</td>
+              <td>{{getmarks?.science}}</td>
+              <td>{{getmarks?.maths}}</td>
+              <td>{{getmarks?.computer}}</td>
+              <td>{{getmarks?.arts}}</td>
+            </tr>
+            <tr>
+              <th> </th>
+              <td *ngIf="getmarks?.english>35; else fail">pass</td>
+              <td *ngIf="getmarks?.science>35; else fail">pass</td>
+              <td *ngIf="getmarks?.maths>35; else fail">pass</td>
+              <td *ngIf="getmarks?.computer>35; else fail">pass</td>
+              <td *ngIf="getmarks?.arts>35; else fail">pass</td>
+              <ng-template #fail>
+                <td>fail</td>
+              </ng-template>
+            </tr>
+            <tr>
+              <th>Credit</th>
+              <td *ngIf="getmarks?.english>35; else credit">1</td>
+              <td *ngIf="getmarks?.science>35; else credit">1</td>
+              <td *ngIf="getmarks?.maths>35; else credit">1</td>
+              <td *ngIf="getmarks?.computer>35; else credit">1</td>
+              <td *ngIf="getmarks?.arts>35; else credit">1</td>
+              <ng-template #fail>
+                <td>fail</td>
+              </ng-template>
+              <ng-template #credit>
+                <td>n/a</td>
+              </ng-template>
+            </tr>
+            <tr>
+              <th>Total</th>
+              <th>
+                {{total}}/500
+              </th>
+            </tr>
+            <tr>
+              <th>Persentage</th>
+              <th>
+                {{per}}%
+              </th>
+            </tr>
+            <tr>
+              <th>Grade</th>
+              <td *ngIf="per>90">A+</td>
+              <td *ngIf="per>80 && per<=90">A</td>
+              <td *ngIf="per>70 && per<=80">B+</td>
+              <td *ngIf="per>60 && per<=70">B</td>
+              <td *ngIf="per>50&& per<=60">C+</td>
+              <td *ngIf="per>40&& per<=50">C</td>
+              <td *ngIf="per>30&& per<=40">F</td>
+            </tr>
+            <br>
+            <br>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

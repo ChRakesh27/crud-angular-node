@@ -1,37 +1,33 @@
-<div *ngIf="password=='' && id==''; else principal">
-    <app-login (login)="check($event)"></app-login>
+<div class="background-radial-gradient overflow-hidden">
+
+    <div *ngIf="password=='' && id==''; else principal">
+        <app-login (login)="check($event)"></app-login>
+    </div>
+
+    <ng-template #principal>
+        <div *ngIf="isvalid=='Principal'">
+            <div class="principal">
+                <h1>Principal</h1>
+                <a routerLink="show" class="btn btn-primary">Show</a>
+                &nbsp;
+                <a routerLink="sign" class="btn btn-success">Create</a>
+                &nbsp;
+                <a href='' class="btn btn-primary btn-lg btn-rounded gradient-custom text-body px-5">LoginPage</a>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <div *ngIf="isvalid=='Student'">
+
+            <app-student [id]="getId()"></app-student>
+        </div>
+
+        <div *ngIf="isvalid=='Teacher'">
+            <app-teacher [user]="getId()"></app-teacher>
+        </div>
+
+        <div *ngIf="isvalid=='error'">
+            <app-error></app-error>
+        </div>
+    </ng-template>
+
 </div>
-
-<ng-template #principal>
-    <div *ngIf="isvalid=='Principal'">
-        <h1>Principal</h1>
-        <a routerLink="show" class="btn btn-primary">Show</a>
-        &nbsp;
-        <a routerLink="sign" class="btn btn-success">Create</a>
-        &nbsp;
-        <a routerLink="update" class="btn btn-secondary">update</a>
-        &nbsp;&nbsp;
-        <a href='' class="btn btn-danger">LoginPage</a>
-        <router-outlet></router-outlet>
-    </div>
-
-
-    <div *ngIf="isvalid=='Student'">
-        <h1>Student </h1>
-        <a href='' class="btn btn-danger">LoginPage</a>
-        <app-student [id]="getId()"></app-student>
-    </div>
-
-    <div *ngIf="isvalid=='Teacher'">
-        <h1>Teacher </h1>
-        <a href='' class="btn btn-danger">LoginPage</a>
-        <app-teacher [user]="getId()"></app-teacher>
-    </div>
-
-    <div *ngIf="isvalid=='error'">
-        <app-error></app-error>
-    </div>
-</ng-template>
-<!-- <app-show></app-show> -->
-<!-- <app-signin></app-signin> -->
-<!-- <app-teacher></app-teacher> -->

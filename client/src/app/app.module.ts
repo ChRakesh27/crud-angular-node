@@ -7,7 +7,6 @@ import { SigninComponent } from './signin/signin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppserviceService } from './appservice.service';
 import { ShowComponent } from './show/show.component';
-import { UpdateComponent } from './update/update.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
 import { StudentComponent } from './student/student.component';
@@ -19,7 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     SigninComponent,
     ShowComponent,
-    UpdateComponent,
     LoginComponent,
     ErrorComponent,
     StudentComponent,

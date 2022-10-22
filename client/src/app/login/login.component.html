@@ -1,57 +1,60 @@
-<div class="background-radial-gradient overflow-hidden">
-  <div class="container px-4 py-5 px-md-4 text-center text-lg-start my-5">
-    <div class="row gx-lg-6 align-items-center mb-5">
-      <div class="col-lg-6 mb-4 mb-lg-6" style="z-index: 10">
-        <h1 class="my-3 display-3 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-          Login <br />
-          <span style="color: hsl(218, 81%, 75%)">for your College</span>
-        </h1>
-        <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-          The login page allows a user to gain access to an application by entering their id and password or by
-          authenticating using a college login
-        </p>
-      </div>
-      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
-        <div class="card bg-glass">
-          <div class="card-body px-4 py-5 px-md-5">
-            <div class="text-center">
+<!-- <div class="background-radial-gradient overflow-hidden"> -->
+<div class="container px-4 py-5 px-md-4 text-center text-lg-start my-5">
+  <div class="row gx-lg-6 align-items-center mb-5">
+    <div class="col-lg-6 mb-4 mb-lg-6" style="z-index: 10">
+      <h1 class="my-3 display-3 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+        Login <br />
+        <span style="color: hsl(218, 81%, 75%)">for your College</span>
+      </h1>
+      <h4 class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+        The login page allows a user to gain access to an application by entering their id and password or by
+        authenticating using a college login
+      </h4>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
-              <div class="row">
-                <div class="form-outline mb-4">
-                  <div class="form-outline">
-                    <label for="exampleInputEmail1" class="form-label">
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <h1 style="color: #fff">Id</h1>
-                    </label>
-                    <input type="user" placeholder="Id" class="form-control" id="exampleInputEmail1" [(ngModel)]="id"
-                      required>
-                  </div>
+    </div>
+    <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+      <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+      <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+      <div class="card bg-glass">
+        <img src="assets\images\def1.jpeg" alt="">
+        <div class="card-body px-4 py-5 px-md-5">
+          <div class="text-center">
+            <div class="row">
+              <div class="form-outline mb-4">
+                <div class="form-outline">
+                  <label for="exampleInputEmail1" class="form-label">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h1 style="color: #fff">Id</h1>
+                  </label>
+                  <input type="user" placeholder="Id" class="form__label" class="form-control" id="exampleInputEmail1"
+                    [(ngModel)]="id" required>
                 </div>
               </div>
-              <br>
-              <br>
-              <br>
-              <div class="form-outline mb-5">
-                <label for="exampleInputPassword1" class="form-label">
-                  <h1 style="color: #fff">Password</h1>
-                </label>
-                <input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1"
-                  [(ngModel)]="password" required>
-              </div>
-              <!-- Submit button -->
-              <button type="submit" class="btn" [disabled]="!(id.length!=0 && password.length!=0)"
-                (click)="emitted()">Login</button>
-
             </div>
+            <br>
+            <br>
+            <br>
+            <div class="form-outline mb-5">
+              <label for="exampleInputPassword1" class="form-label">
+                <h1 style="color: #fff">Password</h1>
+              </label>
+              <input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1"
+                [(ngModel)]="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-rounded gradient-custom text-body px-5"
+              (click)="emitted()">Login</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- Section: Design Block -->
+<!-- </div> -->

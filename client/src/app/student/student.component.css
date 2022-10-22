@@ -1,0 +1,41 @@
+img{
+    margin-left: 80%;
+}
+.student{
+    margin: -100px;
+    font-size: 30px;
+}
+h1{
+    font-size: 50px;
+}
+#radius-shape-1 {
+    height: 160px;
+    width: 160px;
+    top: -60px;
+    left: -90px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }
+
+  #radius-shape-2 {
+    border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+    bottom: -60px;
+    right: -900px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }
+  .bg-glass {
+    width: 1700px;
+    height: 100%;
+    background-color: #fff3 !important;
+    border-radius: 2%;
+    backdrop-filter: saturate(200%) blur(50px);
+  }
+  .modal-content{
+    background-color: hsl(219, 65%, 19%);
+    color: #000;
+    border: 2px solid greenyellow;
+    margin-top: 80%;
+  }

@@ -1,0 +1,61 @@
+.selectedimg{
+    width: 0;
+    margin-left: 200px;
+}
+.selectedimg:hover{
+    scale: 1.2;
+}
+.btn{
+    width: 150px;
+    height: 100px;
+}
+.checkbtn{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+.form-control{
+    background: #0000;
+    color: #fff;
+    border-style: hidden;
+    font-size: 30px;
+    border-bottom-style:solid;
+}
+#radius-shape-1 {
+    height: 160px;
+    width: 160px;
+    top: -40px;
+    left: -80px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }
+
+  #radius-shape-2 {
+    border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+    bottom: -60px;
+    right: -900px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }
+  .bg-glass {
+    width: 1700px;
+    height: 100%;
+    background-color: #fff3 !important;
+    border-radius: 2%;
+    backdrop-filter: saturate(200%) blur(50px);
+    padding: 10px 50px;
+  }
+  .modal-content{
+    background-color: hsl(219, 65%, 19%);
+    color: #000;
+    border: 2px solid greenyellow;
+    margin-top: 80%;
+  }
+.btn{
+     width: 150px;
+     height: 50px;
+    text-align: center;
+}

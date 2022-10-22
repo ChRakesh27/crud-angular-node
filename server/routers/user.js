@@ -65,9 +65,9 @@ function userRoutes(app, db) {
     app.put('/api/updateUser', async (req, res) => {
         try {
             data = req.body;
-            const updRes = `UPDATE login SET username=?, password=?  WHERE id =?`;
+            const updRes = `UPDATE login SET username=?, password=?, img=?   WHERE id =?`;
             let sinRes = selectAll + ` WHERE id='${data.id}'`
-            await db.query(updRes, [data.username, data.password, data.id])
+            await db.query(updRes, [data.username, data.password, data.img, data.id])
             const selRes = await db.query(sinRes)
             res.json({
                 msg: "success",

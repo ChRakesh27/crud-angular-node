@@ -7,25 +7,33 @@
   <hr>
   <h1 style="text-align:'center'">{{userinf}}</h1>
   <hr>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">UserName</th>
-        <th scope="col">Password</th>
-        <th scope="col">about</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let inf of getData">
-        <th *ngIf="inf.about==userinf" scope="row">{{inf.id}}</th>
-        <td *ngIf="inf.about==userinf">{{inf.username}}</td>
-        <td *ngIf="inf.about==userinf">{{inf.password}}</td>
-        <td *ngIf="inf.about==userinf">{{inf.about}}</td>
-        <td *ngIf="inf.about==userinf"><button (click)="delete(inf.id)">X</button></td>
-      </tr>
+  <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+    <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+    <div class="card bg-glass">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col" *ngIf="userinf=='Student'">Photo</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Password</th>
+            <th scope="col">about</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inf of getData">
+            <th *ngIf="inf.about==userinf" scope="row">{{inf.id}}</th>
+            <th *ngIf="inf.about=='Student' && userinf=='Student'"><img src="../../assets/images/{{inf.img}}.jpg"></th>
+            <td *ngIf="inf.about==userinf">{{inf.username}}</td>
+            <td *ngIf="inf.about==userinf">{{inf.password}}</td>
+            <td *ngIf="inf.about==userinf">{{inf.about}}</td>
+            <td *ngIf="inf.about==userinf"><button class="del" (click)="delete(inf.id)">X</button></td>
+          </tr>
 
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

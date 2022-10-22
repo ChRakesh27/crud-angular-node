@@ -1,23 +1,47 @@
-<form [formGroup]="userform" (ngSubmit)="submit()">
-
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label" >Id</label>
-    <input type="user" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="id">
+<div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+  <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+  <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+  <div class="card bg-glass">
+    <form [formGroup]="userform">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Id</label>
+        <input type="user" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          formControlName="id">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">User Name</label>
+        <input type="user" class="form-control" id="exampleInputUser" aria-describedby="userHelp"
+          formControlName="username">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Image</label>
+        <label class="selectedimg" for="option1"><img src="../../assets/images/1.jpg"></label>
+        <input type="radio" id="option1" formControlName="img" value="1" name="img" autocomplete="off" class="checkbtn"
+          checked>
+        &nbsp;
+        &nbsp;
+        <label class="selectedimg" for="option2"><img src="../../assets/images/2.jpg"></label>
+        <input type="radio" value="2" formControlName="img" name="img" id="option2" autocomplete="off" class="checkbtn">
+        &nbsp;
+        &nbsp;
+        <label class="selectedimg" for="option3"><img src="../../assets/images/3.jpg"></label>
+        <input type="radio" value="3" formControlName="img" name="img" id="option3" autocomplete="off" class="checkbtn">
+        &nbsp;
+        &nbsp;
+        <label class="selectedimg" for="option4"><img src="../../assets/images/4.jpg"></label>
+        <input type="radio" name="img" formControlName="img" value="4" id="option4" autocomplete="off" class="checkbtn">
+      </div>
+      <a type="submit" (click)="submit()" href="sign" class="btn btn-danger">Submit</a>
+      <a type="submit" (click)="update()" href="sign" class="btn btn-primary">Update</a>
+    </form>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label" >User Name</label>
-    <input type="user" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="username">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label" >about</label>
-    <select class="form-select" aria-label="Default select example" formControlName="about">
-      <option value="Student">Student</option>
-      <option value="Teacher">Teacher</option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-primary" >Submit</button>
-</form>
+</div>

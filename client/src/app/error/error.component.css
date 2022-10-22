@@ -1,0 +1,22 @@
+.container{
+    font-size: 50px;
+    margin-left: 150px;
+}
+#radius-shape-1 {
+    height: 160px;
+    width: 160px;
+    top: -60px;
+    left: -90px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }
+
+  #radius-shape-2 {
+    border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+    bottom: -60px;
+    right: -600px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }

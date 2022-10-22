@@ -1,98 +1,56 @@
-<!-- <form [formGroup]="updatemarks">
-  <br>
-  <br>
-  <br>
-  <h1 style="text-align:center ;">
-    {{subject | uppercase}}
-    <br>
-    <br>
-  </h1>
-  <hr>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col" width="30%">Id</th>
-        <th scope="col" width="40%">Marks</th>
-        <th scope="col" width="30%">Update</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let marksget of getmarks">
-        <th scope="row"><label for="exampleInputEmail1" class="form-label">{{marksget.id}}</label></th>
-        <td>
-          <label for="exampleInputEmail1" class="form-label">{{marksget[subject]}}</label>
-        </td>
-        <td>
-          <button type="button" class="btn btn-primary" (click)="updatePopup(marksget.id)">Update
-          </button>
-          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">ID: {{id}}</h4>
-                </div>
-                <div class="modal-body">
-                  <input type='number' style="width:'70px' ;" formControlName="value">
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary" (click)="update(id)" (click)="cancelPopup()">Ok</button>
-                  <button type="button" class="btn btn-danger" (click)="cancelPopup()">Close</button>
-                </div>
-              </div>
-            </div>
+<div class="teacher">
+  <h1>Teacher</h1>
+  <a href='' class="btn btn-primary btn-lg btn-rounded gradient-custom text-body px-5">LoginPage</a>
+  <form [formGroup]="updatemarks">
+    <h1 style="text-align:center ;">
+      {{subject | uppercase}}
+      <br>
+      <br>
+    </h1>
+    <hr>
+    <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+      <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+      <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+      <div class="card bg-glass">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" width="30%">Id</th>
+              <th scope="col" width="40%">Marks</th>
+              <th scope="col" width="30%">Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let marksget of getmarks">
+              <th scope="row"><label for="exampleInputEmail1" class="form-label">{{marksget.id}}</label></th>
+              <td>
+                <label for="exampleInputEmail1" class="form-label">{{marksget[subject]}}</label>
+              </td>
+              <td>
+                <button type="button" class="btn1" (click)="updatePopup(marksget.id)">Update</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">ID: {{id}}</h4>
           </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</form>
- -->
-<form [formGroup]="updatemarks">
-  <br>
-  <br>
-  <br>
-  <h1 style="text-align:center ;">
-    {{subject | uppercase}}
-    <br>
-    <br>
-  </h1>
-  <hr>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col" width="30%">Id</th>
-        <th scope="col" width="40%">Marks</th>
-        <th scope="col" width="30%">Update</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let marksget of mar[0]">
-        <th scope="row"><label for="exampleInputEmail1" class="form-label">{{marksget.id}}</label></th>
-        <td>
-          <!-- <label for="exampleInputEmail1" class="form-label">{{marksget[subject]}}</label> -->
-          <label for="exampleInputEmail1" class="form-label">{{marksget[subject]}}</label>
-        </td>
-        <td>
-          <button type="button" class="btn btn-primary" (click)="updatePopup(marksget.id)">Update
-          </button>
-          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">ID: {{id}}</h4>
-                </div>
-                <div class="modal-body">
-                  <input type='number' style="width:'70px' ;" formControlName="value">
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary" (click)="update(id)" (click)="cancelPopup()">Ok</button>
-                  <button type="button" class="btn btn-danger" (click)="cancelPopup()">Close</button>
-                </div>
-              </div>
-            </div>
+          <div class="modal-body">
+            Marks:
+            <input type='number' class="marks" style="width:'70px' ;" formControlName="value">
           </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</form>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" (click)="update(id)" (click)="cancelPopup()">Ok</button>
+            <button type="button" class="btn btn-danger" (click)="cancelPopup()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
